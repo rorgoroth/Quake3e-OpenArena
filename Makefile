@@ -30,20 +30,20 @@ USE_SDL          = 1
 USE_CURL         = 1
 USE_LOCAL_HEADERS= 0
 USE_VULKAN       = 1
-USE_OPENGL       = 1
+USE_OPENGL       = 0
 USE_OPENGL2      = 0
 USE_SYSTEM_JPEG  = 0
 USE_VULKAN_API   = 1
 
-USE_RENDERER_DLOPEN = 1
+USE_RENDERER_DLOPEN = 0
 
-CNAME            = quake3e
-DNAME            = quake3e.ded
+CNAME            = quake3e-oa
+DNAME            = quake3e-oa-server
 
 RENDERER_PREFIX  = $(CNAME)
 
 # valid options: opengl, vulkan, opengl2
-RENDERER_DEFAULT = opengl
+RENDERER_DEFAULT = vulkan
 
 
 ifeq ($(V),1)
@@ -521,13 +521,13 @@ endif # *NIX platforms
 endif # !MINGW
 
 
-TARGET_CLIENT = $(CNAME)$(ARCHEXT)$(BINEXT)
+TARGET_CLIENT = $(CNAME)$(BINEXT)
 
 TARGET_REND1 = $(RENDERER_PREFIX)_opengl_$(SHLIBNAME)
 TARGET_REND2 = $(RENDERER_PREFIX)_opengl2_$(SHLIBNAME)
 TARGET_RENDV = $(RENDERER_PREFIX)_vulkan_$(SHLIBNAME)
 
-TARGET_SERVER = $(DNAME)$(ARCHEXT)$(BINEXT)
+TARGET_SERVER = $(DNAME)$(BINEXT)
 
 STRINGIFY = $(B)/rend2/stringify$(BINEXT)
 
