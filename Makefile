@@ -132,6 +132,10 @@ USE_CCACHE=0
 endif
 export USE_CCACHE
 
+ifndef USE_CODEC_VORBIS
+USE_CODEC_VORBIS=1
+endif
+
 ifndef USE_LOCAL_HEADERS
 USE_LOCAL_HEADERS=1
 endif
@@ -254,6 +258,10 @@ ifneq ($(USE_RENDERER_DLOPEN),0)
   BASE_CFLAGS += -DUSE_RENDERER_DLOPEN
   BASE_CFLAGS += -DRENDERER_PREFIX=\\\"$(RENDERER_PREFIX)\\\"
   BASE_CFLAGS += -DRENDERER_DEFAULT="$(RENDERER_DEFAULT)"
+endif
+
+ifeq ($(USE_CODEC_VORBIS),1)
+  BASE_CFLAGS += -DUSE_CODEC_VORBIS=1
 endif
 
 ifdef DEFAULT_BASEDIR
@@ -380,6 +388,10 @@ ifdef MINGW
     endif
   endif
 
+  ifeq ($(USE_CODEC_VORBIS),1)
+    CLIENT_LDFLAGS += -lvorbisfile -lvorbis -logg
+  endif
+
   ifeq ($(USE_CURL),1)
     BASE_CFLAGS += -I$(MOUNT_DIR)/libcurl/windows/include
     ifeq ($(ARCH),x86)
@@ -419,6 +431,10 @@ ifeq ($(COMPILE_PLATFORM),darwin)
   else
     BASE_CFLAGS += -I/Library/Frameworks/SDL2.framework/Headers
     CLIENT_LDFLAGS = -F/Library/Frameworks -framework SDL2
+  endif
+
+  ifeq ($(USE_CODEC_VORBIS),1)
+    CLIENT_LDFLAGS += -lvorbisfile -lvorbis -logg
   endif
 
   ifeq ($(USE_SYSTEM_JPEG),1)
@@ -918,6 +934,7 @@ Q3OBJ = \
   $(B)/client/snd_main.o \
   $(B)/client/snd_codec.o \
   $(B)/client/snd_codec_wav.o \
+  $(B)/client/snd_codec_ogg.o \
   \
   $(B)/client/sv_bot.o \
   $(B)/client/sv_ccmds.o \
