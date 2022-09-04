@@ -26,27 +26,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 // q_shared.h -- included first by ALL program modules.
 // A user mod should never modify this file
 
-#define Q3_VERSION            "Q3 1.32e"
+#define Q3_VERSION              "1.36e"
 #ifndef SVN_VERSION
   #define SVN_VERSION Q3_VERSION
 #endif
-#define CLIENT_WINDOW_TITLE   "Quake 3: Arena"
-#define CONSOLE_WINDOW_TITLE  "Quake 3 Console"
-// 1.32 released 7-10-2002
+#define CLIENT_WINDOW_TITLE     "OpenArena"
+#define CONSOLE_WINDOW_TITLE    "OpenArena Console"
 
-//#define DEFAULT_GAME			"edawn"
-
-#define BASEGAME				"baseq3"
-#define BASEDEMO				"demoq3"
-#define BASETA					"missionpack"
-#define STEAMPATH_NAME			"Quake 3 Arena"
-#define STEAMPATH_APPID			"2200"
+#define BASEGAME                "baseoa"
+#define BASEDEMO                "demoq3"
+#define BASETA                  "missionpack"
+#define STEAMPATH_NAME          "Quake 3 Arena"
+#define STEAMPATH_APPID         "2200"
 
 #define MAX_TEAMNAME            32
-#define MAX_MASTER_SERVERS      5	// number of supported master servers
+#define MAX_MASTER_SERVERS      2
 
 #define GAMENAME_FOR_MASTER		"Quake3Arena"
-#define HEARTBEAT_FOR_MASTER	"QuakeArena-1"
+#define HEARTBEAT_FOR_MASTER	"DarkPlaces"
 
 #define DEMOEXT	"dm_"			// standard demo extension
 

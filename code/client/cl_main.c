@@ -3882,7 +3882,7 @@ void CL_Init( void ) {
 	// if the cgame hasn't been started
 	Cvar_Get ("cg_autoswitch", "1", CVAR_ARCHIVE);
 
-	cl_motdString = Cvar_Get( "cl_motdString", "", CVAR_ROM );
+	cl_motdString = Cvar_Get( "cl_motdString", "0", CVAR_ROM );
 
 	cv = Cvar_Get( "cl_maxPing", "800", CVAR_ARCHIVE_ND );
 	Cvar_CheckRange( cv, "100", "999", CV_INTEGER );
