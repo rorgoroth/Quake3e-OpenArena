@@ -286,12 +286,12 @@ PROTOCOL
 ==============================================================
 */
 
-#define	OLD_PROTOCOL_VERSION	68
+#define	OLD_PROTOCOL_VERSION	71
 // new protocol with UDP spoofing protection:
 #define	NEW_PROTOCOL_VERSION	71
 // 1.31 - 67
 
-#define DEFAULT_PROTOCOL_VERSION	OLD_PROTOCOL_VERSION
+#define DEFAULT_PROTOCOL_VERSION	NEW_PROTOCOL_VERSION
 
 
 // maintain a list of compatible protocols for demo playing
@@ -301,19 +301,19 @@ extern const int demo_protocols[];
 #define	UPDATE_SERVER_NAME	"update.quake3arena.com"
 // override on command line, config files etc.
 #ifndef MASTER_SERVER_NAME
-#define MASTER_SERVER_NAME	"master.quake3arena.com"
+#define MASTER_SERVER_NAME	"dpmaster.deathmask.net"
 #endif
 #ifndef AUTHORIZE_SERVER_NAME
-#define	AUTHORIZE_SERVER_NAME	"authorize.quake3arena.com"
+#define	AUTHORIZE_SERVER_NAME	"localhost"
 #endif
 
-#define	PORT_MASTER			27950
-#define	PORT_UPDATE			27951
+#define	PORT_MASTER             27950
+#define	PORT_UPDATE             27951
 #ifndef PORT_AUTHORIZE
 #define	PORT_AUTHORIZE		27952
 #endif
-#define	PORT_SERVER			27960
-#define	NUM_SERVER_PORTS	4		// broadcast scan this many ports after
+#define	PORT_SERVER             27960
+#define	NUM_SERVER_PORTS        4		// broadcast scan this many ports after
 									// PORT_SERVER so a single machine can
 									// run multiple servers
 
