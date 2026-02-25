@@ -413,7 +413,7 @@ ifdef MINGW
     $(error Cannot find a suitable cross compiler for $(PLATFORM))
   endif
 
-  BASE_CFLAGS += -Wall -Wimplicit -Wstrict-prototypes -Wno-unused-result
+  BASE_CFLAGS += -Wall -Wimplicit -Wstrict-prototypes -Wno-unused-result -Wno-incompatible-pointer-types
   BASE_CFLAGS += -DUSE_ICON -DMINGW=1
 
   ifeq ($(ARCH),x86_64)
