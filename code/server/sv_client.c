@@ -1104,8 +1104,9 @@ static void SV_SendClientGameState( client_t *client ) {
 			// can handle cs updates later without potential overflow
 			csUpdated = 0;
 		}
-		if ( client->gamestateAck == GSA_SENT_ONCE && csUpdated == 0 ) {
+		if ( ( client->gamestateAck == GSA_SENT_ONCE || client->gamestateAck == GSA_ACKED ) && csUpdated == 0 ) {
 			// if no configstrings being updated since last submission then assume that we're (re)sending identical gamestate
+			client->gamestateAck = GSA_SENT_ONCE;
 		} else {
 			// expect exact messageAcknowledge
 			client->gamestateAck = GSA_SENT_MANY;
